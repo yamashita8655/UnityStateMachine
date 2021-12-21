@@ -1,0 +1,9 @@
+// this file is auto create
+namespace MasterData;
+table MapObjectData {
+	id:int;
+	path:string;
+	pos_x:int;
+	pos_y:int;
+}
+root_type MapObjectData;

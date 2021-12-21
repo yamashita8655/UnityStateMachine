@@ -1,0 +1,8 @@
+// this file is auto create
+namespace MasterData;
+table CR_Material {
+	id:string;
+	name:string;
+	rate:int;
+}
+root_type CR_Material;

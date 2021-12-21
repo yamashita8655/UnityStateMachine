@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestState1 : StateBase {
+public class TestState1 : TestState1Base {
 
     /// <summary>
     /// 初期化前処理.

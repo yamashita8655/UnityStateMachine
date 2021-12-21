@@ -1,0 +1,17 @@
+// this file is auto create
+namespace MasterData;
+enum EnumTest:int { Zero, One, Two }
+enum SecondEnum:int { First, Second, Third, Force }
+table EnumTestdata {
+	id:int;
+	name:string;
+	pos_x:float;
+	pos_y:float;
+	flag:bool;
+	number_enum:EnumTest;
+	hp:int;
+	second_enum:SecondEnum;
+	detail:string;
+	number_enum2:EnumTest;
+}
+root_type EnumTestdata;

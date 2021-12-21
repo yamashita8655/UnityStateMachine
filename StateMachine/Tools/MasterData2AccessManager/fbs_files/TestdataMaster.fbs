@@ -1,0 +1,10 @@
+// this file is auto create
+namespace MasterData;
+table Testdata {
+	id:int;
+	name:string;
+	pos_x:float;
+	pos_y:float;
+	flag:bool;
+}
+root_type Testdata;

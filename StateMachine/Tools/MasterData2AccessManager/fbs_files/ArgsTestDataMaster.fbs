@@ -1,0 +1,8 @@
+// this file is auto create
+namespace MasterData;
+table ArgsTestData {
+	id:int;
+	args_list_int:[int];
+	args_list_string:[string];
+}
+root_type ArgsTestData;

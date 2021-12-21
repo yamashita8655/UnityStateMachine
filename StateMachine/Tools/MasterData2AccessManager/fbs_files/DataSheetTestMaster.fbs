@@ -1,0 +1,10 @@
+// this file is auto create
+namespace MasterData;
+table DataSheetTest {
+	id:int;
+	room_type:int;
+	name:string;
+	description:string;
+	max_level:int;
+}
+root_type DataSheetTest;

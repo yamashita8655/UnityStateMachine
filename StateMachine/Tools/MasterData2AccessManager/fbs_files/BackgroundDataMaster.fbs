@@ -1,0 +1,7 @@
+// this file is auto create
+namespace MasterData;
+table BackgroundData {
+	id:int;
+	scroll_canvas_id_list:[int];
+}
+root_type BackgroundData;

@@ -1,0 +1,14 @@
+python masterdata_generator_for_flatbuffers.py
+
+for file in `'find' fbs_files -name '*.fbs'`; do
+	echo $file
+	./flatc -n $file
+done
+
+for file in `'find' MasterData -name '*.cs'`; do
+	echo $file ../../Assets/Scripts/MasterData
+	cp $file ../../Assets/Scripts/MasterData
+done
+
+rm -rf MasterData
+

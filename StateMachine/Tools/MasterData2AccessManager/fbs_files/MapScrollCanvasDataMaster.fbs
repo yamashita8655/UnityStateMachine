@@ -1,0 +1,8 @@
+// this file is auto create
+namespace MasterData;
+table MapScrollCanvasData {
+	id:int;
+	canvas_width:int;
+	map_object_id_list:[int];
+}
+root_type MapScrollCanvasData;
