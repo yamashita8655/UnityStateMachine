@@ -7,9 +7,10 @@ public class TestState1 : StateBase {
     /// <summary>
     /// 初期化前処理.
     /// </summary>
-    override public void OnBeforeInit()
+    override public bool OnBeforeInit()
     {
         Debug.Log("TestState1 OnBeforeInit");
+		return true;
     }
     /// <summary>
     /// 初期化更新処理.
@@ -24,17 +25,19 @@ public class TestState1 : StateBase {
     /// <summary>
     /// 初期化後処理.
     /// </summary>
-    override public void OnAfterInit()
+    override public bool OnAfterInit()
     {
         Debug.Log("TestState1 OnAfterInit");
+		return true;
     }
 
     /// <summary>
     /// メイン前処理.
     /// </summary>
-    override public void OnBeforeMain()
+    override public bool OnBeforeMain()
     {
         Debug.Log("TestState1 OnBeforeMain");
+		return true;
     }
 
     /// <summary>
@@ -50,17 +53,19 @@ public class TestState1 : StateBase {
     /// <summary>
     /// メイン後処理.
     /// </summary>
-    override public void OnAfterMain()
+    override public bool OnAfterMain()
     {
         Debug.Log("TestState1 OnAfterMain");
+		return true;
     }
 
     /// <summary>
     /// 終了前処理.
     /// </summary>
-    override public void OnBeforeEnd()
+    override public bool OnBeforeEnd()
     {
         Debug.Log("TestState1 OnBeforeEnd");
+		return true;
     }
 
     /// <summary>
@@ -77,9 +82,10 @@ public class TestState1 : StateBase {
     /// <summary>
     /// 終了後処理.
     /// </summary>
-    override public void OnAfterEnd()
+    override public bool OnAfterEnd()
     {
         Debug.Log("TestState1 OnAfterEnd");
+		return true;
     }
 
     /// <summary>

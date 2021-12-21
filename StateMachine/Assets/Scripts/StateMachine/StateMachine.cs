@@ -71,6 +71,8 @@ public class StateMachine
 			return;
 		}
 
+		bool canSkip = false;
+
 		switch(ManageState)
 		{
 		case MachineState.BeforeInit:
@@ -83,7 +85,7 @@ public class StateMachine
 			else
 			{
 				ManageState = MachineState.UpdateInit;
-				NowState._OnBeforeInit();
+				canSkip = NowState._OnBeforeInit();
 			}
 			break;
 		
@@ -99,12 +101,12 @@ public class StateMachine
 		
 		case MachineState.AfterInit:
 			ManageState = MachineState.BeforeMain;
-			NowState.OnAfterInit();
+			canSkip = NowState.OnAfterInit();
 			break;
 		
 		case MachineState.BeforeMain:
 			ManageState = MachineState.UpdateMain;
-			NowState.OnBeforeMain();
+			canSkip = NowState.OnBeforeMain();
 			break;
 		
 		case MachineState.UpdateMain:
@@ -113,12 +115,12 @@ public class StateMachine
 		
 		case MachineState.AfterMain:
 			ManageState = MachineState.BeforeEnd;
-			NowState.OnAfterMain();
+			canSkip = NowState.OnAfterMain();
 			break;
 		
 		case MachineState.BeforeEnd:
 			ManageState = MachineState.UpdateEnd;
-			NowState.OnBeforeEnd();
+			canSkip = NowState.OnBeforeEnd();
 			break;
 		
 		case MachineState.UpdateEnd:
@@ -133,7 +135,7 @@ public class StateMachine
 		
 		case MachineState.AfterEnd:
 			ManageState = MachineState.Release;
-			NowState.OnAfterEnd();
+			canSkip = NowState.OnAfterEnd();
 			break;
 		
 		case MachineState.Release:
@@ -151,6 +153,12 @@ public class StateMachine
 				NowState = val;
 				break;
 			}
+		}
+		
+		// 同一フレーム内で、先のステートに進んで良ければ、
+		// もう一度Updateを呼び出す
+		if (canSkip == true) {
+			Update(delta);
 		}
 	}
 	
@@ -260,6 +268,16 @@ public class StateMachine
 	public int GetState()
 	{
 		return State;
+	}
+	
+	/// <summary>
+	/// 予約した次のステートの取得.
+	/// 今のステートだと、毎フレームチェックする場合に、Releaseが呼ばれるまで次ステートに切り替わらないので、判定に使えない
+	/// </summary>
+	/// <returns>ステートタイプ</returns>
+	public int GetNextState()
+	{
+		return NextState;
 	}
 	
 	/// <summary>

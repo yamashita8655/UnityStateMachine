@@ -83,6 +83,7 @@ public class StateMachineManager
 	/// <param name="stateType">ステートタイプ</param>
 	public void ChangeState(StateMachineName machineName, int stateType)
 	{
+		
 		StateMachine val = null;
 		StateMachineMap.TryGetValue(machineName, out val);
 		
@@ -156,6 +157,21 @@ public class StateMachineManager
 		}
 
 		return val.GetState();
+	}
+	
+	/// <summary>
+	/// 次ステートタイプの取得.
+	/// </summary>
+	/// <param name="machineName">ステートマシン名</param>
+	/// <returns>ステートタイプ</returns>
+	public int GetNextState(StateMachineName machineName)
+	{
+		StateMachine val = null;
+		if (StateMachineMap.TryGetValue(machineName, out val) == false) {
+			return -1;
+		}
+
+		return val.GetNextState();
 	}
 	
 	/// <summary>

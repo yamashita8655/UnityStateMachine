@@ -51,10 +51,10 @@ public class StateBase
 	/// <summary>
 	/// 初期化前処理.
 	/// </summary>
-	virtual public void _OnBeforeInit()
+	public bool _OnBeforeInit()
 	{
 		InitCalled = true;
-		OnBeforeInit();
+		return OnBeforeInit();
 	}
 
 	/// <summary>
@@ -78,8 +78,9 @@ public class StateBase
 	/// <summary>
 	/// 初期化前処理.
 	/// </summary>
-	virtual public void OnBeforeInit()
+	virtual public bool OnBeforeInit()
 	{
+		return true;
 	}
 	
 	/// <summary>
@@ -95,15 +96,17 @@ public class StateBase
 	/// <summary>
 	/// 初期化後処理.
 	/// </summary>
-	virtual public void OnAfterInit()
+	virtual public bool OnAfterInit()
 	{
+		return true;
 	}
 
 	/// <summary>
 	/// メイン前処理.
 	/// </summary>
-	virtual public void OnBeforeMain()
+	virtual public bool OnBeforeMain()
 	{
+		return true;
 	}
 	
 	/// <summary>
@@ -117,15 +120,17 @@ public class StateBase
 	/// <summary>
 	/// メイン後処理.
 	/// </summary>
-	virtual public void OnAfterMain()
+	virtual public bool OnAfterMain()
 	{
+		return true;
 	}
 
 	/// <summary>
 	/// 終了前処理.
 	/// </summary>
-	virtual public void OnBeforeEnd()
+	virtual public bool OnBeforeEnd()
 	{
+		return true;
 	}
 	
 	/// <summary>
@@ -141,8 +146,9 @@ public class StateBase
 	/// <summary>
 	/// 終了後処理.
 	/// </summary>
-	virtual public void OnAfterEnd()
+	virtual public bool OnAfterEnd()
 	{
+		return true;
 	}
 
 	/// <summary>
