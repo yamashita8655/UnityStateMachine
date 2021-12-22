@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BaseStateMachineSampleScene : MonoBehaviour {
 
+	[SerializeField]
+    private SceneSrializeFields CuSF = null;
+    public SceneSrializeFields SF => CuSF;
+
 	// Use this for initialization
 	void Start () {
         StateMachineManager.Instance.Init();
